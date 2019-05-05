@@ -1,0 +1,8 @@
+digraph Prozessbaum {
+    _ -> B;
+    _ -> 20;
+    B -> u;
+    B -> S;
+    20 -> 1;
+    20 -> 9;
+}
