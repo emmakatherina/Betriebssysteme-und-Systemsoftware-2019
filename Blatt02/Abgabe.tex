@@ -4,13 +4,15 @@
 
 \title{Übungsblatt 2}
 \subtitle{Betriebssysteme und Systemsoftware, Sommersemester 2019}
-\author{ \and Emma Ahrens, 371063}
+\author{ Hanbit Chang, 374370 \and Jonghwan Choi, 365634 \and Emma Ahrens, 371063}
 
 \begin{document}
 \maketitle
 
 % Aufgabe 1
 \section{Aufgabe}
+
+Siehe Programmdateien.
 
 % Aufgabe 2
 \section{Aufgabe}
@@ -42,5 +44,21 @@ Da das Programm nur in den ersten Block geht, wenn fork() 0 ist, wird es in dem 
 
 % Aufgabe 4
 \section{Aufgabe}
+
+\subsection{}
+
+Siehe Programmdateien.
+
+\subsection{}
+
+Die Funktion \texttt{write} macht jedes Mal einen syscall, wohingegen mit der Funktion \texttt{fprintf} die Ausgabe erst einmal gespeichert wird und dann die gesammelten Ausgaben mit \texttt{fflush} über einen syscall ausgegeben werden. Damit ist \texttt{fprintf} effizienter, wenn man es richtig anwendet. Falls man hingegen jedes Mal direkt auch \texttt{fflush} ausführt, ist \texttt{write} effizienter.
+
+\subsection{}
+
+Wenn ein Prozess fertig ist, aber der Elternprozess noch nicht fertig ist, dann bleibt der Prozess in dem Zustand TASK\_ZOMBIE noch erhalten, damit der Elternprozess auf die Daten zugreifen kann. Wenn der Elternprozess \texttt{wait4()} aufruft, wird der Prozess gelöscht.
+
+\subsection{}
+
+Der Kindprozess speichert die PID des Elternprozesses, damit das System weiß, welcher Prozess nach dem Kindprozess abgearbeitet werden soll. Also damit der Baum der Prozesse sinnvoll weiter abgearbeitet werden kann.
 
 \end{document}
