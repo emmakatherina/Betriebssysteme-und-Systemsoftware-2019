@@ -1,0 +1,103 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc} % Umlaute werden erkannt
+\usepackage{graphicx} % um png-Dateien einzubinden
+
+\title{Übungsblatt 4}
+\subtitle{Betriebssysteme und Systemsoftware, Sommersemester 2019}
+\author{ Hanbit Chang, 374370 \and Jonghwan Choi, 365634 \and Emma Ahrens, 371063}
+
+\begin{document}
+\maketitle
+
+% Aufgabe 1
+\section{Aufgabe}
+
+
+% Aufgabe 2
+\section{Aufgabe}
+
+\subsection{}
+
+\subsection{}
+
+% Aufgabe 3
+\section{Aufgabe}
+
+\subsection{Boolean Flags Are Enough For Everyone}
+
+\begin{center}
+\begin{tabular}{ c | c }
+ Thread 0 & Thread 1 \\ [0.5ex] \hline \hline
+ while (true) \{ & \\ \hline
+  & while (true) \{ \\ \hline
+ while (flag != false) \{ & \\ \hline
+  & while (flag != false) \{ \\ \hline
+ ; & \\ \hline
+  & ; \\ \hline
+ \} & \\ \hline
+  & \} \\ \hline
+ flag = true; & \\ \hline
+  & flag = true; \\ \hline
+ critical\_section(); & \\ \hline
+  & critical\_section(); \\ 
+\end{tabular}
+\end{center}
+
+\subsection{Simple Counter}
+
+\begin{center}
+\begin{tabular}{ c | c }
+ Thread 0 & Thread 1 \\ [0.5ex] \hline \hline
+ while (true) \{ & \\
+ counter++; & \\
+ if (counter == 5) \{ & \\
+ while (true) \{ & \\
+ counter++; & \\
+ if (counter == 5) \{ & \\
+  & while (true) \{ \\
+  & counter++; \\
+  & if (counter == 5) \{ \\
+  & critical\_section(); \\
+ while (true) \{ & \\
+ counter++; & \\
+ if (counter == 5) \{ & \\
+ while (true) \{ & \\
+ counter++; & \\
+ if (counter == 5) \{ & \\
+ critical\_section(); & \\ 
+\end{tabular}
+\end{center}
+
+\subsection{Semaphores}
+
+\begin{center}
+\begin{tabular}{ c | c }
+ Thread 0 & Thread 1 \\ [0.5ex] \hline \hline
+  & while (true) \{ \\
+  & if (semaphore.Wait(500)) \{ \\
+  & semaphore.Release(); \\
+ while (true) \{ & \\
+ semaphore.Wait(); & \\
+ critical\_section(); & \\
+  & while (true) \{ \\
+  & if (semaphore.Wait(500)) \{ \\
+  & semaphore.Release(); \\
+  & while (true) \{ \\
+  & if (semaphore.Wait(500)) \{ \\
+  & critical\_section(); \\
+\end{tabular}
+\end{center}
+
+% Aufgabe 4
+\section{Aufgabe}
+
+
+% Aufgabe 5
+\section{Aufgabe}
+
+
+% Aufgabe 6
+\section{Aufgabe}
+
+
+\end{document}
