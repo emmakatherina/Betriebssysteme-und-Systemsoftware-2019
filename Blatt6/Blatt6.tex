@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[left=2cm,right=2cm,bottom=2cm,top=2cm]{geometry}
+\usepackage{tikz}
+
+\title{Bus - Blatt 6}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Aufgabe 4}
+
+\subsection*{a)}
+
+Die Seitengröße ist $32 KiB = 2^{10}*32 Bit = 2^{10+5} Bit = 2^{15} Bit$.
+Außerdem sind die Adressen 48 Bit lang, also können wir $2^{48}/2^{15} = 2^{33}$
+Seiten speichern und die Page Table hat $2^{33}$ Einträge.
+
+\subsection*{b)}
+
+Bei einer einstufigen Page Table hätten wir $2^{33}$ Einträge. Wenn wir nun
+eine dreistufige Page Table mit jeweils gleicher Größe betrachten, dann gilt:\\
+Angenommen die Page Tables haben jeweils $m$ Einträge. Dann können wir
+im ersten Level $m$ Seiten ansprechen, im zweiten Level $m^2$ und im dritten
+Level $m^3$. Wir müssen $2^{33}$ Level ansprechen und es gilt
+$m^3 = 2^33 \Leftrightarrow m = 2^{11}$, also haben die Tabellen jeweils
+$ 2^{11} $ Einträge und insgesamt sind es $ 3 * 2^{11} $ Einträge.
+
+\subsection*{c)}
+
+Durch mehrstufiges Paging werden die Page Tables deutlich kleiner, wie man
+auch sehen kann, wenn man das Ergebnis von Aufgabe a) und b) vergleicht.
+Allerdings wird die Zugriffszeit mit jeder weiteren Stufe um eines größer:\\
+Bei zweistufigem Paging ist sie doppelt so groß wie bei einstufigem Paging
+und bei dreistufigem Paging schon dreimal so groß.
+
+\end{document}
